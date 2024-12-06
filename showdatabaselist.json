@@ -1,0 +1,53 @@
+[
+	{
+		"Database" : "automobile"
+	},
+	{
+		"Database" : "chinook"
+	},
+	{
+		"Database" : "globalsuperstore"
+	},
+	{
+		"Database" : "information_schema"
+	},
+	{
+		"Database" : "jewelrystore_db"
+	},
+	{
+		"Database" : "little_lemon"
+	},
+	{
+		"Database" : "little_lemon_db"
+	},
+	{
+		"Database" : "littlelemondb"
+	},
+	{
+		"Database" : "lucky_shrub"
+	},
+	{
+		"Database" : "mangata_gallo"
+	},
+	{
+		"Database" : "mg_schema"
+	},
+	{
+		"Database" : "mysql"
+	},
+	{
+		"Database" : "performance_schema"
+	},
+	{
+		"Database" : "sakila"
+	},
+	{
+		"Database" : "sportsclub"
+	},
+	{
+		"Database" : "sys"
+	},
+	{
+		"Database" : "world"
+	}
+]
