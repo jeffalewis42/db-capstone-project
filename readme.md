@@ -6,4 +6,4 @@ Task 1: [Little Lemon ER Diagram](LittleLemonDM.png)
 
 Task 2: [Little Lemon DB Exported](LittleLemonDB.sql)
 
-Task 3: [List of Databases in Connection with LittleLemonDb highlighted](showdatabaselist.json)
+Task 3: [List of Databases in Connection with LittleLemonDb](showdatabaselist.json)
