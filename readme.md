@@ -10,6 +10,16 @@ Task 3: [List of Databases in Connection with LittleLemonDb](showdatabaselist.js
 
 **Module 2**
 
+*Create a Virtual Table*
+
+Task 1:[Create virtual table OrdersView](OrdersView.json)
+
+Task 2:[Using JOIN](UsingJOIN.json)
+
+Task 3:[Using a subQuery](SubQuery.json)
+
+*Create optimized queries*
+
 Task 1: [Results from stored procedure GetMaxQuantity](GetMaxQuantity.json)
 
 ```
