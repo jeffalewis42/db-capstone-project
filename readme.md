@@ -220,3 +220,13 @@ BEGIN
     SELECT @msg AS Confirmation;
 END //
 ```
+
+**Module 3***
+
+*Set up the Tableau Workspace for data analysis*
+
+Task 1: [Screenshot of data loaded into tableau](<Task 1 Data loaded into tableau.png>)
+
+Task 2: [Screenshot of Customer Full Name split](<Task 2 Customer Name Split.png>)
+
+Task 3: [Screenshot of Calculated Field Profit](<Task 3 Calculated Field.png>)
