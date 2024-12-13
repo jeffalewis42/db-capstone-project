@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `bookings`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookings` (
   `BookingID` int NOT NULL AUTO_INCREMENT,
-  `Date` date NOT NULL,
+  `BookingDate` date NOT NULL,
   `TableNum` int NOT NULL,
   `CustomerID` int NOT NULL,
   `StaffID` int NOT NULL,
