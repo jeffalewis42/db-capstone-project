@@ -263,3 +263,7 @@ Task 4: [Cuisines Sales and Profits Chart](<Cuisine Sales and Profits.png>)
 Task 5: [Interactive Dashboard](Dashboard.png)
 
 ![Dashboard](Dashboard.png)
+
+*Add query functions*
+
+Task 1 - 3: [Jupiter Notebook with connection and queries](littlelemondb.ipynb)
