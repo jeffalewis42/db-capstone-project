@@ -4,6 +4,8 @@ setting up repository for project
 
 Task 1: [Little Lemon ER Diagram](LittleLemonDM.png)
 
+![ER Diagram](LittleLemonDM.png)
+
 Task 2: [Little Lemon DB Exported](LittleLemonDB.sql)
 
 Task 3: [List of Databases in Connection with LittleLemonDb](showdatabaselist.json)
@@ -100,39 +102,39 @@ END //
 
 Task 3: [Result for AddValidBooking already booked](AddValidBookingResults.csv)
 
-		[Result for AddValidBooking not already booked](AddValidBookingResults2.csv)
+[Result for AddValidBooking not already booked](AddValidBookingResults2.csv)
 
 		```
 		CREATE PROCEDURE AddValidBooking(IN InDate DATE, IN InTableNum INT)
-BEGIN
-    DECLARE msg VARCHAR(255);
-    DECLARE state INT;
-    SET state = 0;
-    IF ((
-        SELECT TableNum
-        FROM Bookings
-        WHERE (BookingDate=InDate AND TableNum=InTableNum)) IS NULL)
-
-        THEN
+        BEGIN
+            DECLARE msg VARCHAR(255);
+            DECLARE state INT;
             SET state = 0;
-        ELSE
-            SET state = 1;
-        END IF;
-    START TRANSACTION;
+            IF ((
+                SELECT TableNum
+                FROM Bookings
+                WHERE (BookingDate=InDate AND TableNum=InTableNum)) IS NULL)
 
-    INSERT INTO Bookings (BookingDate, TableNum, CustomerID, StaffID) VALUES (InDate, InTableNum, 3, 4);
+                THEN
+                    SET state = 0;
+                ELSE
+                    SET state = 1;
+                END IF;
+            START TRANSACTION;
 
-    IF (state = 0)
-        THEN
-            SET @msg=CONCAT('Table ', InTableNum, ' is now booked on ', InDate);
-            COMMIT;
-        ELSE
-            SET @msg=CONCAT('Table ', InTableNum, ' is already booked');
-            ROLLBACK;
-        END IF;
+            INSERT INTO Bookings (BookingDate, TableNum, CustomerID, StaffID) VALUES (InDate, InTableNum, 3, 4);
 
-    SELECT @msg AS 'Booking Status';
-END //
+            IF (state = 0)
+                THEN
+                    SET @msg=CONCAT('Table ', InTableNum, ' is now booked on ', InDate);
+                    COMMIT;
+                ELSE
+                    SET @msg=CONCAT('Table ', InTableNum, ' is already booked');
+                    ROLLBACK;
+                END IF;
+
+            SELECT @msg AS 'Booking Status';
+        END //
 		
 		```
 
@@ -224,9 +226,40 @@ END //
 **Module 3***
 
 *Set up the Tableau Workspace for data analysis*
+[Little Lemon Tableau Workbook](littlelemondb.twb)
 
 Task 1: [Screenshot of data loaded into tableau](<Task 1 Data loaded into tableau.png>)
 
+![Task 1 Screenshot](<Task 1 Data loaded into tableau.png>)
+
 Task 2: [Screenshot of Customer Full Name split](<Task 2 Customer Name Split.png>)
 
+![Task 2 Screenshot](<Task 2 Customer Name Split.png>)
+
 Task 3: [Screenshot of Calculated Field Profit](<Task 3 Calculated Field.png>)
+
+![Task 3 Screenshot](<Task 3 Calculated Field.png>)
+
+*Create interactive dashboard for sales and profits*
+
+Task 1: [Customer Sales Graph](<Customer Sales.png>)
+
+![Customer Sales](<Customer Sales.png>)
+
+Task 2: [Profit Chart](<Profit Chart.png>)
+
+![Profit Chart](<Profit Chart.png>)
+
+Task 3: [Sales Bubble Chart](<Sales Bubble Chart.png>)
+
+(note that names have been filtered to make it easier to view)
+
+![Sales Bubble](<Sales Bubble Chart.png>)
+
+Task 4: [Cuisines Sales and Profits Chart](<Cuisine Sales and Profits.png>)
+
+![Cuisine Sales and Profits](<Cuisine Sales and Profits.png>)
+
+Task 5: [Interactive Dashboard](Dashboard.png)
+
+![Dashboard](Dashboard.png)
