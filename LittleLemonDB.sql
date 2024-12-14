@@ -258,6 +258,10 @@ INSERT INTO `staff` VALUES (1,'Roddie Winterbotham','Manager',80000.00),(2,'Pinc
 UNLOCK TABLES;
 
 --
+-- Dumping events for database 'littlelemondb'
+--
+
+--
 -- Dumping routines for database 'littlelemondb'
 --
 /*!50003 DROP PROCEDURE IF EXISTS `AddBooking` */;
@@ -460,6 +464,51 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ManageBooking` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = cp850 */ ;
+/*!50003 SET character_set_results = cp850 */ ;
+/*!50003 SET collation_connection  = cp850_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ManageBooking`(IN InDate DATE, IN InTableNum INT)
+BEGIN
+            DECLARE msg VARCHAR(255);
+            DECLARE state INT;
+            SET state = 0;
+            IF ((
+                SELECT TableNum
+                FROM Bookings
+                WHERE (BookingDate=InDate AND TableNum=InTableNum)) IS NULL)
+
+                THEN
+                    SET state = 0;
+                ELSE
+                    SET state = 1;
+                END IF;
+            START TRANSACTION;
+
+            INSERT INTO Bookings (BookingDate, TableNum, CustomerID, StaffID) VALUES (InDate, InTableNum, 3, 4);
+
+            IF (state = 0)
+                THEN
+                    SET @msg=CONCAT('Table ', InTableNum, ' is now booked on ', InDate);
+                    COMMIT;
+                ELSE
+                    SET @msg=CONCAT('Table ', InTableNum, ' is already booked');
+                    ROLLBACK;
+                END IF;
+
+            SELECT @msg AS 'Booking Status';
+        END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `PrintMessage` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -588,4 +637,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-14 14:07:44
+-- Dump completed on 2024-12-14 15:45:32

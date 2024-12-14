@@ -104,6 +104,8 @@ Task 3: [Result for AddValidBooking already booked](AddValidBookingResults.csv)
 
 [Result for AddValidBooking not already booked](AddValidBookingResults2.csv)
 
+***Note: duplicated as ManageBooking() procedure which had no instructions.
+
 		```
 		CREATE PROCEDURE AddValidBooking(IN InDate DATE, IN InTableNum INT)
         BEGIN
